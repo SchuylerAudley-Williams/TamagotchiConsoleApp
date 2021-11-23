@@ -65,4 +65,19 @@ class TamagotchiTest: XCTestCase {
         //assert
         XCTAssertEqual(tamagotchi.isAsleep, true)
     }
+    
+    func testReturnStatsReturnsStats() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        //act
+        let tamagotchiStats = tamagotchi.returnStats()
+        //assert
+        let defaultOutput = """
+Hunger: 5
+Thirst: 5
+Is currently ill: false
+Is currently asleep: false
+"""
+        XCTAssertEqual(tamagotchiStats, defaultOutput)
+    }
 }

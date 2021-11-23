@@ -43,4 +43,13 @@ class Tamagotchi {
             isAsleep = true
         }
     }
+    
+    func returnStats() -> String {
+        return """
+Hunger: \(hunger)
+Thirst: \(thirst)
+Is currently ill: \(isIll)
+Is currently asleep: \(isAsleep)
+"""
+    }
 }
