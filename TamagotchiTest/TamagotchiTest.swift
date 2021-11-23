@@ -13,7 +13,7 @@ class TamagotchiTest: XCTestCase {
         let tamagotchi = Tamagotchi()
         //act
         tamagotchi.eat()
-        //asssert
+        //assert
         XCTAssertEqual(tamagotchi.hunger, 4)
     }
     
@@ -34,5 +34,35 @@ class TamagotchiTest: XCTestCase {
         tamagotchi.drink()
         //assert
         XCTAssertEqual(tamagotchi.thirst, 4)
+    }
+    
+    func testDrinkDoesNotReduceThirstWhenThirstIs0() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        //act
+        tamagotchi.thirst = 0
+        tamagotchi.drink()
+        //assert
+        XCTAssertEqual(tamagotchi.thirst, 0)
+        
+    }
+    
+    func testRecieveMedicineChangesIsIllFromTrueToFalse() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        //act
+        tamagotchi.isIll = true
+        tamagotchi.recieveMedicine()
+        //assert
+        XCTAssertEqual(tamagotchi.isIll, false)
+    }
+    
+    func testSleepChangesIsAsleepFromFalseToTrue() {
+        //arrange
+        let tamagotchi = Tamagotchi()
+        //act
+        tamagotchi.sleep()
+        //assert
+        XCTAssertEqual(tamagotchi.isAsleep, true)
     }
 }

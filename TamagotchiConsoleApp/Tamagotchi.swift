@@ -10,10 +10,14 @@ import Foundation
 class Tamagotchi {
     var hunger: Int
     var thirst: Int
+    var isIll: Bool
+    var isAsleep: Bool
     
     init() {
         hunger = 5
         thirst = 5
+        isIll = false
+        isAsleep = false
     }
     
     func eat() {
@@ -25,6 +29,18 @@ class Tamagotchi {
     func drink() {
         if thirst != 0 {
             thirst -= 1
+        }
+    }
+    
+    func recieveMedicine() {
+        if isIll {
+            isIll = false
+        }
+    }
+    
+    func sleep() {
+        if !isAsleep {
+            isAsleep = true
         }
     }
 }
